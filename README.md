@@ -1,4 +1,4 @@
-###STAR WARS PLANETS
+### STAR WARS PLANETS
 
 um simples projeto para revisar alguns conceitos do react e poder avançar para o redux,
 https://saiiru.github.io/starwarsplanets/ Link para acesso no github pages
