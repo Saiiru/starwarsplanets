@@ -1,3 +1,12 @@
+###STAR WARS PLANETS
+
+um simples projeto para revisar alguns conceitos do react e poder avançar para o redux,
+https://saiiru.github.io/starwarsplanets/ Link para acesso no github pages
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
