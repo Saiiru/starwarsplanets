@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Jedi-Logo;
+  src: url('./star_jedi/stjelogo/Stjldbl2.ttf');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 1000%);
+}
+
+h1 {
+  font-family: Jedi-Logo;
+  color: white;
+text-shadow: 2px 0 0 rgb(0, 0, 0), -2px 0 0 rgb(0, 0, 0), 0 2px 0 rgb(0, 0, 0), 0 -2px 0 rgb(0, 0, 0), 1px 1px rgb(0, 0, 0), -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(7, 7, 7), -1px 1px 0 rgb(0, 0, 0);
+}
+
+.container {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 8px 8px;
+  grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . .";
+
+}
