@@ -1,48 +1,53 @@
-import axios from 'axios'
 import React from 'react'
 import CardList from './components/CardList'
 import Scroll from './components/Scroll'
 import SearchBox from './components/SearchBox'
-const teste = {
-    name: 'Tatooine',
-    url: 'https://jkhub.org/wiki/images/0/01/Tatooine.png'
+import { connect } from 'react-redux'
+import { setSearchField, requestPlanets } from './redux/action'
+
+// parameter state comes from index.js provider store state(rootReducers)
+const mapStateToProps = state => {
+  return {
+    searchField: state.searchPlanets.searchField,
+    planets: state.requestPlanets.planets,
+    isPending: state.requestPlanets.isPending,
+    data: state.requestPlanets.data
   }
-function App() {
-const  [searchField, setSearchField] = React.useState('')
-const  [planets, setPlanets] = React.useState([])
-
-
-const fetchPlanets = async () => {
-  const response = await axios.get(`https://swapi.dev/api/planets/`);
-
-  const data = response.data
-
-  setPlanets(data.results);
-};
-
-
-React.useEffect(()=>{console.log('check')
-fetchPlanets(planets)
-
-},[])
-
-function onSearchChange(e) {
-  setSearchField(e.target.value)
-
 }
- const filteredPlanets = planets.filter(planets => {
+
+// dispatch the DOM changes to call an action. note mapStateToProps returns object, mapDispatchToProps returns function
+// the function returns an object then uses connect to change the data from redecers.
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchChange: (e) => {
+      dispatch(setSearchField(e.target.value))
+    },
+    onRequestPlanets: () => dispatch(requestPlanets())
+  }
+}
+
+function App({ searchField, onSearchChange, onRequestPlanets, planets, isPending, data }) {
+  const filteredPlanets = planets.filter(planets => {
 
     return planets.name.toLowerCase().includes(searchField.toLowerCase())
   })
 
-  return (
-    <div className="tc">
-    <h1 className="b--black">STAR WARS </h1>
-    <SearchBox onSearchChange={onSearchChange} searchField={searchField} />
-    <Scroll><CardList planets={filteredPlanets} /></Scroll>
 
-  </div>
+  React.useEffect(() => {
+
+    onRequestPlanets()
+
+  }, [onRequestPlanets])
+
+
+return (
+    <div className="tc">
+      <h1 className="b--black">STAR WARS </h1>
+      <SearchBox onSearchChange={onSearchChange} searchField={searchField} />
+      <Scroll><CardList planets={filteredPlanets} /></Scroll>
+
+    </div>
   )
 }
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)
