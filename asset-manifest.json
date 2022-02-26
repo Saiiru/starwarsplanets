@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/starwarsplanets/static/css/main.8e5952ca.css",
-    "main.js": "/starwarsplanets/static/js/main.b0892eb5.js",
+    "main.css": "/starwarsplanets/static/css/main.4e87a3e8.css",
+    "main.js": "/starwarsplanets/static/js/main.d05b14bb.js",
     "static/media/Stjldbl2.ttf": "/starwarsplanets/static/media/Stjldbl2.5707e0fe68ba62d7c729.ttf",
     "index.html": "/starwarsplanets/index.html",
-    "main.8e5952ca.css.map": "/starwarsplanets/static/css/main.8e5952ca.css.map",
-    "main.b0892eb5.js.map": "/starwarsplanets/static/js/main.b0892eb5.js.map"
+    "main.4e87a3e8.css.map": "/starwarsplanets/static/css/main.4e87a3e8.css.map",
+    "main.d05b14bb.js.map": "/starwarsplanets/static/js/main.d05b14bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e5952ca.css",
-    "static/js/main.b0892eb5.js"
+    "static/css/main.4e87a3e8.css",
+    "static/js/main.d05b14bb.js"
   ]
 }
