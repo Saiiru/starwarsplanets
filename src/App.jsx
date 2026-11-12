@@ -4,7 +4,8 @@ import CardList from './components/CardList'
 import SearchBox from './components/SearchBox'
 import Operations from './components/Operations'
 import AskPanel from './components/AskPanel'
-import {Overview, WorldsPanel, FleetPanel, ShipsPanel} from './components/GalacticPanels'
+import CommandDeck from './components/CommandDeck'
+import {WorldsPanel, FleetPanel, ShipsPanel} from './components/GalacticPanels'
 import {setSearchField,requestPlanets} from './redux/action'
 import {apiCall,swapiUrl} from './api/api.js'
 import {ERAS,FACTIONS,DEMO_INVENTORY} from './data/galactic-registry.js'
@@ -88,7 +89,7 @@ function FleetRegistry({searchField,onSearchChange,onRequestPlanets,planets,isPe
   <a href="#main-content" className="skip-nav">Pular para o conteúdo</a>
   <header className="topbar">
    <a href="#command" className="logo" onClick={event=>{event.preventDefault();choose('command')}} aria-label="HOLO-NET Fleet Registry - início">
-    <span className="logo-glyph" aria-hidden="true">◈</span><span><strong>HOLO<span>NET</span></strong><small>FLEET REGISTRY // SYSTEM 01</small></span>
+    <span className="logo-glyph" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="8"/><path d="M24 4v12m0 16v12M4 24h12m16 0h12M10 10l8 8m12 12 8 8M38 10l-8 8M18 30l-8 8"/></svg></span><span><strong>HOLO<span>NET</span></strong><small>FLEET REGISTRY // SYSTEM 01</small></span>
    </a>
    <div className="topbar-meta"><span className="uptime"><i aria-hidden="true"/>OPEN DEMO / READ ONLY</span>
     <a href="https://github.com/Saiiru/starwarsplanets" target="_blank" rel="noopener noreferrer">SOURCE CODE ↗</a></div>
@@ -104,21 +105,21 @@ function FleetRegistry({searchField,onSearchChange,onRequestPlanets,planets,isPe
    </aside>
    <main id="main-content" className="main">
     <div className="topline"><span>GALACTIC OPERATIONS / RESEARCH INSTANCE</span><span>ACCESS // PUBLIC DATASET</span></div>
-    <div className="hero">
-     <p className="eyebrow">// FLEET INTELLIGENCE · ASSET REGISTRY · LORE ARCHIVE</p>
-     <h1>FLEET <span>CONTROL.</span></h1>
-     <p>Logística ficcional com rastreabilidade: planetas e filiações por época, classes de naves e um inventário de treinamento inspirado nos comandos da República e do Império.</p>
-    </div>
+    {tab!=='command'&&<div className="subpage-context">
+      <span>HOLO-NET / REGISTRO DE COMANDO</span>
+      <strong>{NAV.find(item=>item.id===tab)?.label}</strong>
+    </div>}
     <div className="control-strip">
      <label>ERA GALÁCTICA<select value={era} onChange={event=>{setEra(event.target.value);setSearch('')}}>{ERAS.map(item=><option key={item.id} value={item.id}>{item.label} · {item.dating}</option>)}</select></label>
      <label>FACÇÃO<select value={faction} onChange={event=>setFaction(event.target.value)}><option value="ALL">Todas as facções</option>{Object.entries(FACTIONS).filter(([id])=>id!=='UNKNOWN').map(([id,value])=><option key={id} value={id}>{value.label}</option>)}</select></label>
      {['worlds','fleet','ships'].includes(tab)&&<label className="query-input">PESQUISA<input type="search" value={search} onChange={event=>setSearch(event.target.value)} placeholder="Buscar planeta, nave…"/></label>}
      <span className="era-marker">{ERAS.find(item=>item.id===era)?.dating}</span>
     </div>
-    {tab==='command'&&<button type='button' className='ask-entry' onClick={()=>choose('ask')}>CONSULTAR EM LINGUAGEM NATURAL <span>↗</span></button>}
-    <div className="disclosure" role="note"><strong>SIMULAÇÃO DE TREINAMENTO</strong><span>Quantidades de estoque são inventadas. Registros históricos citam fontes e nunca presumem facção quando há lacunas.</span></div>
+    {tab!=='command'&&<div className="disclosure" role="note"><strong>SIMULAÇÃO DE TREINAMENTO</strong><span>Quantidades de estoque são inventadas. Registros históricos citam fontes e nunca presumem facção quando há lacunas.</span></div>}
 
-    {tab==='command'&&<Overview era={era} faction={faction} inventory={inventory} worlds={worldsFiltered} onNavigate={choose}/>}
+    {tab==='command'&&<CommandDeck era={era} faction={faction} inventory={inventory}
+      worlds={worldsFiltered} apiOnline={backend} onNavigate={choose}
+      onSelectPlanet={planet=>{setSearch(planet.name);choose('worlds');setSearch(planet.name)}}/>}
     {tab==='worlds'&&<WorldsPanel era={era} worlds={worldsFiltered} search={search} swapiCount={planets.length} loading={isPending} error={error}/>}
     {tab==='fleet'&&<FleetPanel era={era} faction={faction} search={search} inventory={inventory} backend={backend} onNavigate={choose}/>}
     {tab==='ships'&&<ShipsPanel ships={ships} search={search} loading={shipLoading} error={shipError}/>}

@@ -17,7 +17,8 @@ with sync_playwright() as playwright:
         page.on("pageerror", lambda error: errors.append(str(error)))
         response = page.goto(BASE_URL, wait_until="domcontentloaded", timeout=35000)
         assert response.status == 200, (width, response.status)
-        assert page.get_by_text("FLEET CONTROL.").count() >= 1
+        assert page.get_by_role("heading", name="Controle galáctico.").count() == 1
+        assert page.locator(".star-pin").count() == 9
 
         page.get_by_role("button", name="CONSULTA NATURAL").click()
         field = page.get_by_role("textbox", name="O QUE VOCÊ QUER CONSULTAR?")
