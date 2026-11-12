@@ -1,3 +1,15 @@
+# Star Wars Planet Explorer
+
+**Objetivo:** Experimentar listagem, busca e gerenciamento de estado em um catálogo de planetas com dados externos.
+
+**Estado:** Exercício com Github Pages legado; funcionamento da fonte de dados exige verificação.
+
+**Documentação técnica, origem e próximos passos:** [docs/PROJECT_BRIEF.md](docs/PROJECT_BRIEF.md)
+
+---
+
+## Material original preservado
+
 ### STAR WARS PLANETS
 
 um simples projeto para revisar alguns conceitos do react e poder avançar para o redux,
