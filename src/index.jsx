@@ -5,16 +5,13 @@ import { Provider } from 'react-redux'
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { searchPlanets, requestPlanets } from './redux/reducers';
-import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk'
 
-import registerServiceWorker from './registerServiceWorker';
 import 'tachyons'
 import './index.css'
 
-const logger = createLogger();
 const rootReducer = combineReducers({ searchPlanets, requestPlanets });
-const store = createStore(rootReducer, applyMiddleware(thunk, logger))
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,5 +21,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-registerServiceWorker();

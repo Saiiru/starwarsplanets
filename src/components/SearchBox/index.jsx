@@ -1,10 +1,9 @@
 import React from 'react'
 
-function SearchBox({onSearchChange, searchField}) {
-  return (<div className="pa3">
-    <input  className="pa3 ba b--green bg-lightest-blue "  type="search" placeholder="Search Planets" onChange={onSearchChange}/>
+export default function SearchBox({ onSearchChange, searchField }) {
+  return <div className="pa3">
+    <label htmlFor="planet-search" className="planet-search-label">Buscar planetas</label>
+    <input id="planet-search" className="pa3 ba b--green bg-lightest-blue planet-search-input"
+      type="search" placeholder="Ex.: Tatooine" value={searchField} onChange={onSearchChange}/>
   </div>
-  )
 }
-
-export default SearchBox

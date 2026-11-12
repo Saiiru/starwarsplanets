@@ -35,3 +35,14 @@ Estudo React/Redux; nome real preservado para não quebrar Pages. Créditos, fon
 **Ainda não é:** sistema integrado à KORA, serviço em produção ou prova de maturidade sem testes.
 
 [Voltar ao portfólio SAIRU/BLACKSITE](https://saiiru.github.io/#projetos-independentes)
+
+
+## Verificação de funcionamento — 12/11/2026
+
+**Estado confirmado:** Frontend React validado localmente
+
+**Evidência:** Node 24 · npm test: 3/3; Vite build; Playwright 390/1280; API SWAPI ao vivo com 60 planetas
+
+**Limites e bloqueios:** Depende de SWAPI externa; exibe erro e permite tentar novamente se a API estiver indisponível.
+
+Esta validação não implica integração à KORA nem certificação de produção. Não alterar histórico, licença e autoria dos tutoriais.

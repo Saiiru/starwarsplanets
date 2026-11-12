@@ -29,3 +29,27 @@ text-shadow: 2px 0 0 rgb(0, 0, 0), -2px 0 0 rgb(0, 0, 0), 0 2px 0 rgb(0, 0, 0), 
     ". . . .";
 
 }
+
+
+/* Original SWAPI study: accessible, responsive presentation and explicit status. */
+body { background:#080d19; color:#eef4fb; min-height:100vh; }
+.planet-explorer { min-height:100vh; max-width:1500px; margin:auto; padding:24px 16px 70px; }
+.planet-hero { padding:45px 16px 24px; }
+.planet-hero h1 { font-size:clamp(2rem,5vw,4.5rem); line-height:1.07; margin:15px 0; }
+.planet-hero h1 span { color:#f3e600; }
+.planet-hero>p { color:#cbd9e9; max-width:62ch; margin:15px auto; line-height:1.65; }
+.planet-eyebrow { letter-spacing:.16em; font-size:.85rem; color:#00e5ff!important; }
+.planet-hero a, .planet-error button { color:#00e5ff; text-underline-offset:4px; }
+.planet-search-label { display:block; font-weight:700; margin-bottom:12px; color:#e4edfa; }
+.planet-search-input { min-width:min(320px,90vw); border-radius:6px; color:#06121c; }
+.planet-results { color:#b7cee3; }
+.planet-error { padding:20px; background:#341524; color:#fff; border:1px solid #c5003c; border-radius:6px; max-width:700px; margin:15px auto; }
+.planet-error button { display:block; margin:15px auto 0; background:transparent; border:1px solid #00e5ff; padding:8px 16px; cursor:pointer; }
+.planet-card { display:inline-flex; flex-direction:column; width:min(280px,90vw); margin:10px; background:#13243d; border:1px solid #42627d; border-radius:6px; overflow:hidden; text-align:left; vertical-align:top; min-height:380px; }
+.planet-card img, .planet-placeholder { width:100%; height:225px; object-fit:cover; background:radial-gradient(circle,#183954,#080c18); }
+.planet-placeholder { display:flex; justify-content:center; align-items:center; font-size:5rem; color:#00e5ff; }
+.planet-card-content { padding:16px 18px; }
+.planet-card h2 { font-size:1.3rem; line-height:1.3; margin:0 0 14px; color:#f3e600; }
+.planet-card p { font-size:.9rem; margin:8px 0; color:#d0e0ee; overflow-wrap:anywhere; }
+.planet-explorer :focus-visible { outline:3px solid #f3e600; outline-offset:4px; }
+@media(prefers-reduced-motion:reduce){.planet-card{transition:none}}
