@@ -1,6 +1,6 @@
 # HOLO-NET → GenAI Engineering Sprint
 
-**Corte:** 12/11/2026. **Prioridade externa:** prazo informado de inscrição no Programa GenAI iFood em **17/11/2026**.  
+**Corte:** 12/11/2026. **Prioridade externa:** prazo informado de inscrição no Programa GenAI iFood em **17/11/2026**.
 **Objetivo:** converter o sistema existente num caso de engenharia de IA explicável, sem fingir treinamento ou inferência real.
 
 A candidatura é independente do desenvolvimento: **não espere terminar a IA para se inscrever**. Não há confirmação aqui de que a inscrição foi enviada.
@@ -18,7 +18,7 @@ A candidatura é independente do desenvolvimento: **não espere terminar a IA pa
 
 **Próxima sessão de 25 minutos:** execute os testes de API e a avaliação existente e explique, com seu próprio raciocínio, por que a resposta de X-wings em Yavin 4 é 28 disponíveis e 36 totais. Não altere a implementação nesse primeiro contato.
 
-Arquivos de entrada: `src/ai/query-core.js`, `src/data/galactic-registry.js`, `server/src/app.js`, `server/eval/questions.json`.  
+Arquivos de entrada: `src/ai/query-core.js`, `src/data/galactic-registry.js`, `server/src/app.js`, `server/eval/questions.json`.
 Evidência: `server/eval/latest-results.json` e `server/eval/REPORT.md`.
 
 ## Agenda até a candidatura

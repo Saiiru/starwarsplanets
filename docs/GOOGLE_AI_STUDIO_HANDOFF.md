@@ -1,7 +1,7 @@
 # Tarefa para Google AI Studio Build / Gemini Editor
 
-**Repositório existente:** https://github.com/Saiiru/starwarsplanets  
-**Aplicação pública:** https://saiiru.github.io/starwarsplanets/  
+**Repositório existente:** https://github.com/Saiiru/starwarsplanets
+**Aplicação pública:** https://saiiru.github.io/starwarsplanets/
 **Objetivo:** uma segunda passada profissional de produto e design sobre o HOLO-NET; **não criar outro aplicativo e não refazer o backend**.
 
 ## Como entregar esta tarefa ao editor do Google
@@ -72,7 +72,7 @@ Aprimore estes pontos:
 1. Compare o diff com `main` antes de mesclar.
 2. Reexecute os testes de ferramentas, autenticação, auditoria e avaliação.
 3. Confira que os links oficiais de lore continuam intactos.
-4. Só publique GitHub Pages depois do smoke test local. 
+4. Só publique GitHub Pages depois do smoke test local.
 5. Se o Google alterar arquivos fora do escopo, reverta ou separe em outro PR antes de publicar.
 
 ## O que não podemos considerar concluído por esse handoff

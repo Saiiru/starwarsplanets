@@ -1,6 +1,6 @@
 # HOLO-NET — avaliação de consulta
 
-Este relatório mede apenas 30 perguntas escritas para a mesma base curada. 
+Este relatório mede apenas 30 perguntas escritas para a mesma base curada.
 Não é teste cego, não mede o desempenho de LLM real nem treina modelos.
 
 | Indicador | Medição |
