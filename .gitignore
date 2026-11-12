@@ -24,3 +24,10 @@ yarn-error.log*
 
 dist/
 .vercel/
+# HOLO-NET authenticated API — never commit credentials or operational SQLite
+/server/node_modules/
+/server/data/*
+!/server/data/.gitkeep
+/server/.env
+/server/.env.*
+!/server/.env.example

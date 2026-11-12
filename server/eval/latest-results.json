@@ -1,0 +1,29 @@
+{
+  "dataset": "holonet-readonly-curated-v0.1",
+  "description": "Author-written tests using synthetic inventory and manually-curated lore; not an unseen-question benchmark.",
+  "evaluatedAt": "2026-11-12T15:47:36.181Z",
+  "mode": "rules",
+  "summary": {
+    "cases": 30,
+    "passed": 30,
+    "accuracy": 1,
+    "p50LatencyMs": 0.1,
+    "p95LatencyMs": 0.36,
+    "routing": {
+      "rules": 30
+    },
+    "status": {
+      "answered": 23,
+      "unknown": 3,
+      "blocked": 4
+    }
+  },
+  "limitations": [
+    "Cases were written using the same finite curated catalog; not held-out unseen questions.",
+    "Quantities are a synthetic demo fixture; not Star Wars canonical unit counts.",
+    "Natural language parser is rule-based; --llm uses deterministic fallback unless an actual loopback model is configured.",
+    "Lexical lore search is not vector embeddings or semantic RAG.",
+    "Latency excludes browser/UI and any remote model inference in rules mode."
+  ],
+  "failures": []
+}

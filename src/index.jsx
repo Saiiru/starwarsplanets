@@ -7,7 +7,6 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { searchPlanets, requestPlanets } from './redux/reducers';
 import thunk from 'redux-thunk'
 
-import 'tachyons'
 import './index.css'
 
 const rootReducer = combineReducers({ searchPlanets, requestPlanets });
