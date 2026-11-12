@@ -24,17 +24,17 @@ export const searchPlanets = (state = initialSearchState, action = {}) => {
 const initialPlanetsState = {
   planets: [],
   isPending: false,
-
+  error: null,
 }
 
 export const requestPlanets = (state = initialPlanetsState, action = {}) => {
   switch (action.type) {
     case REQUEST_PLANETS_PENDING:
-      return Object.assign({}, state, {isPending: true})
+      return Object.assign({}, state, {isPending: true, error: null})
     case REQUEST_PLANETS_SUCCESS:
-      return Object.assign({}, state, {data: action.payload, planets: action.payload.results, isPending: false})
+      return Object.assign({}, state, {data: action.payload, planets: action.payload.results, isPending: false, error: null})
     case REQUEST_PLANETS_FAILED:
-      return Object.assign({}, state, {error: action.payload})
+      return Object.assign({}, state, {error: action.payload instanceof Error ? action.payload.message : 'Falha de conexão.', isPending: false})
     default:
       return state
   }
