@@ -1,130 +1,117 @@
-# Star Wars Planet Explorer
+# HOLO-NET Fleet Registry
 
-**Objetivo:** Experimentar listagem, busca e gerenciamento de estado em um catálogo de planetas com dados externos.
+**Um laboratório de engenharia de software e IA aplicado à logística de frotas fictícias de Star Wars.**
 
-**Estado:** Exercício com Github Pages legado; funcionamento da fonte de dados exige verificação.
+[**Abrir demonstração pública**](https://saiiru.github.io/starwarsplanets/) · [Arquitetura e tarefas de estudo](docs/FLEET_OPERATIONS.md) · [Avaliação de consultas](docs/AI_QUERY_EVALUATION.md) · [Origem do projeto](docs/PROJECT_BRIEF.md)
 
-**Documentação técnica, origem e próximos passos:** [docs/PROJECT_BRIEF.md](docs/PROJECT_BRIEF.md)
+![HOLO-NET Fleet Registry: painel de operações](docs/screenshots/overview-desktop.png)
 
----
+O projeto começou como *Star Wars Planet Explorer*, exercício de React/Redux baseado na SWAPI. Esse módulo original permanece disponível na aba **SWAPI Original**. A expansão acrescenta uma aplicação de estoque com histórico territorial, autenticação local e perguntas em linguagem natural. O identificador do repositório `starwarsplanets` foi preservado para manter o endereço do GitHub Pages.
 
-## Material original preservado
+**O objetivo é demonstrar um problema concreto:** como consultar a disponibilidade de uma frota, comparar posições e localizar referências históricas sem confundir hipóteses, fontes e quantidades inventadas.
 
-### STAR WARS PLANETS
+## O que funciona
 
-um simples projeto para revisar alguns conceitos do react e poder avançar para o redux,
-https://saiiru.github.io/starwarsplanets/ Link para acesso no github pages
+| Subsistema | Implementação | Evidência |
+| --- | --- | --- |
+| Painel React | Vite, React/Redux, UI responsiva, navegação e busca | Build + testes de navegador |
+| Atlas por época | Controle político e alinhamento separados por registros Canon | Testes com Coruscant, Mon Cala, Lothal |
+| Catálogo SWAPI | Paginação de planetas e naves, tratamento de falhas | API externa consultada e testes |
+| Simulação de estoque | Quantidade total, unidades prontas, posições e facções | SQLite local e fixtures explícitas |
+| Autorização | Admin, operador por facção e leitor; sessões revogáveis | Testes de acesso negado e permitido |
+| Movimentações | Transação SQL, não negatividade, idempotência e auditoria | Testes de transferência e reinício do banco |
+| Perguntas naturais | Consultas determinísticas com evidência e origem | 30 perguntas de avaliação + testes de API |
+| Roteamento por LLM | Modelo **opcional**, apenas em loopback, com cinco ferramentas de leitura | Testes com saída de modelo simulada; **modelo real ainda não validado** |
 
+**As quantidades de naves são sempre ficcionais.** A simulação inicial contém, por exemplo, 36 X-wings em Yavin 4 (28 prontos) e 48 caças TIE em Lothal (37 prontos). Isso **não** é uma contagem oficial da franquia.
 
+Os registros políticos são dependentes da era. A classificação diferencia controle territorial e alinhamento político; se não existe fonte suficiente, retorna **indeterminado**, não uma facção inventada. A curadoria inicial inclui 12 planetas e 14 classes selecionadas; a SWAPI amplia o catálogo sem criar filiações automáticas.
 
+![Consulta por linguagem natural com proveniência](docs/screenshots/query-desktop.png)
 
+## Usar a demonstração
 
-# Getting Started with Create React App
+A [demonstração no GitHub Pages](https://saiiru.github.io/starwarsplanets/) é inteiramente estática. Funciona sem login, permite consultar o cenário fictício e oferece a aba **Consulta Natural**, com perguntas como:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Quantos X-wings estão prontos em Yavin 4?
+- Quem controlava Coruscant nas Guerras Clônicas?
+- Compare as frotas do Império e da Aliança.
+- Qual é a história de Mon Cala?
 
-## Available Scripts
+O módulo com usuário, banco e movimentações **não está exposto na internet**. No GitHub Pages, **Comando Seguro** informa como executar o backend local.
 
-In the project directory, you can run:
+## Executar e testar
 
-### `npm start`
+Pré-requisitos verificados: Node.js 22+, npm. O módulo de backend utiliza `better-sqlite3`, que possui binário nativo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-## Execução atual (Vite)
-
-Node.js 20.19+ ou 22+ e npm. Dependências legadas do Create React App foram substituídas por Vite para permitir builds atuais.
+Frontend:
 
 ```bash
 npm ci
 npm test
-npm run build
 npm run dev
+npm run build
 ```
 
-O diretório de saída é **dist/**. Para hospedar na Vercel, importe o repositório com framework Vite, comando npm run build e saída dist. Nenhum endereço de deploy Vercel é declarado sem deploy verificado.
+API, separadamente:
 
+```bash
+cd server
+npm ci
+npm run check
+npm test
+npm run eval
+```
 
-## Publicação como frontend estático
+Para iniciar o servidor local, copie `server/.env.example` para `server/.env` e configure uma senha **única e forte**, não utilizada em outras contas. O arquivo está ignorado pelo Git. Em seguida:
 
-O repositório inclui `vercel.json` com build Vite e saída `dist/`.
-O site é totalmente estático: não há backend em Vercel nem banco remoto a configurar.
-Build local: `npm ci` (nos estudos React 17, `npm ci --legacy-peer-deps`), `npm test` quando existir e `npm run build`.
-Uma URL de produção somente é anunciada após deploy e teste HTTP/navegador. Nenhuma transação real ou credencial deve ser inserida.
+```bash
+cd server
+node --env-file=.env src/start.js
+```
 
+Em outro terminal, execute `npm run dev` na raiz. O Vite encaminha apenas `/api` ao backend em `127.0.0.1:4358`. Sem a API, o frontend continua em modo de leitura estática.
 
-## Verificação do código em 12/11/2026
+O modelo local de linguagem é **opcional** e não é instalado automaticamente. A configuração e o teste de ferramentas ficam em [AI_QUERY_EVALUATION.md](docs/AI_QUERY_EVALUATION.md).
 
-Node 24 · npm test: 3/3; Vite build; Playwright 390/1280; API SWAPI ao vivo com 60 planetas
+## Arquitetura
 
-**Limitações:** Depende de SWAPI externa; exibe erro e permite tentar novamente se a API estiver indisponível.
+```text
+                  [React + Vite]
+                       |
+             +---------+----------+
+             |                    |
+     [Leitura pública]      [API Fastify local]
+       Catálogo SWAPI              |
+       Lore por período        [SQLite]
+       Cenário sintético        ├─ users / sessions
+             |                  ├─ inventory / movements
+     [Perguntas naturais]       └─ audit
+             |
+       [Roteador por regras]  <---- modo padrão rápido
+             |
+       [Modelo local opcional] ---- apenas seleção de ferramenta read-only
+             |
+       [Ferramenta validada: inventário / lore / comparação / modelos]
+             |
+       [Resposta determinística + fontes + rastreio]
+```
 
+O modelo não escreve diretamente no banco, não recebe credenciais de administrador e sua resposta livre não é considerada fonte de verdade. Operações de estoque exigem autenticação e passam por validações no backend.
 
+## Evidências e limitações
 
-## Publicação GitHub Pages (alternativa a Vercel)
+A suíte de avaliação atualmente contém **30 perguntas escritas para o catálogo conhecido**, com casos de abstenção, injeção de prompt e bloqueio de operações. Não é um benchmark de perguntas novas ou avaliação de um LLM real. Veja os resultados gerados em `server/eval/latest-results.json`.
 
-A página estática é construída com a base específica do repositório; o branch de publicação é `gh-pages`. O código e os testes permanecem na branch `main`.
+O mecanismo de recuperação de lore é uma busca **lexical sobre fontes curadas**, não embeddings, vector store nem RAG semântico. A etapa de IA habilitada por modelo depende de um servidor local OpenAI-compatible, mas a execução com modelo real ainda precisa de medição própria de latência e qualidade.
 
-1. Execute localmente `npm test` (quando disponível), `npm run build` e verifique no navegador.
-2. Compile com `GITHUB_PAGES=true npm run build` e publique a pasta `dist` com uma ferramenta como `gh-pages` usando a autenticação GitHub autorizada.
-3. Confira a resposta HTTP e as interações em `https://saiiru.github.io/starwarsplanets/`.
+**Não é um ERP militar real, sistema seguro para hospedagem pública, nem produto oficial da Lucasfilm.** A interface é uma demonstração de portfólio não comercial criada por fã, com atribuição a [Star Wars Databank](https://www.starwars.com/databank) e [SWAPI](https://swapi.dev/).
+
+## Material para estudar o código depois
+
+Em vez de comentários didáticos espalhados pela implementação, há duas tarefas independentes:
+
+1. [FLEET_OPERATIONS.md](docs/FLEET_OPERATIONS.md): ler o domínio, criar uma transferência de teste, avaliar papéis e justificar a transação SQL.
+2. [AI_QUERY_EVALUATION.md](docs/AI_QUERY_EVALUATION.md): acompanhar uma pergunta natural até a ferramenta e a fonte, executar a avaliação, identificar limites e ativar um LLM local somente quando disponível.
+
+O projeto é **standalone**, não integrado à KORA. A arquitetura de autorização, avaliação e consultas é reutilizável em sistemas reais de estoque de componentes, bancadas e manutenção, sem transformar os dados de Star Wars em dados operacionais reais.

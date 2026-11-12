@@ -1,0 +1,23 @@
+{
+  "name": "holonet-fleet-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first authenticated fleet inventory simulator; lore references kept separate from fictional quantities.",
+  "scripts": {
+    "dev": "node --watch src/start.js",
+    "start": "node src/start.js",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check src/app.js && node --check src/store.js",
+    "eval": "node scripts/evaluate.mjs"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "fastify": "^5.6.1",
+    "@fastify/helmet": "^13.0.2",
+    "@fastify/rate-limit": "^10.3.0",
+    "better-sqlite3": "^12.4.1"
+  }
+}
