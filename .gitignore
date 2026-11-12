@@ -31,3 +31,7 @@ dist/
 /server/.env
 /server/.env.*
 !/server/.env.example
+
+# Local Python experiment caches
+__pycache__/
+*.py[cod]

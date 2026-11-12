@@ -51,7 +51,8 @@ const report={
   'Lexical lore search is not vector embeddings or semantic RAG.',
   'Latency excludes browser/UI and any remote model inference in rules mode.'
  ],
- failures:results.filter(item=>!item.passed)
+ failures:results.filter(item=>!item.passed),
+ results:results.map(({id,question,passed,checks,latencyMs,route,status,intent})=>({id,question,passed,checks,latencyMs,route,status,intent}))
 }
 const destination=join(root,'../eval/latest-results.json')
 writeFileSync(destination,JSON.stringify(report,null,2)+'\n')

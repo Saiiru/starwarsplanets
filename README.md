@@ -4,7 +4,9 @@
 
 [**Abrir demonstração pública**](https://saiiru.github.io/starwarsplanets/) · [Arquitetura e tarefas de estudo](docs/FLEET_OPERATIONS.md) · [Avaliação de consultas](docs/AI_QUERY_EVALUATION.md) · [Origem do projeto](docs/PROJECT_BRIEF.md)
 
-![HOLO-NET Fleet Registry: painel de operações](docs/screenshots/overview-desktop.png)
+[**Sprint GenAI / trilha de estudos**](docs/GENAI_ENGINEERING_SPRINT.md) · [**Tarefa para o Google AI Studio**](docs/GOOGLE_AI_STUDIO_HANDOFF.md) · [**Sistema de design**](DESIGN.md)
+
+![HOLO-NET Command Deck: mapa, consulta natural e manifesto de frota](docs/screenshots/cockpit-desktop.png)
 
 O projeto começou como *Star Wars Planet Explorer*, exercício de React/Redux baseado na SWAPI. Esse módulo original permanece disponível na aba **SWAPI Original**. A expansão acrescenta uma aplicação de estoque com histórico territorial, autenticação local e perguntas em linguagem natural. O identificador do repositório `starwarsplanets` foi preservado para manter o endereço do GitHub Pages.
 
@@ -101,6 +103,8 @@ O modelo não escreve diretamente no banco, não recebe credenciais de administr
 
 ## Evidências e limitações
 
+A análise complementar em Python (`tools/evaluation_report.py`) gera [relatório de métricas](server/eval/REPORT.md), com 3 testes de unidade e sem execução de modelo.
+
 A suíte de avaliação atualmente contém **30 perguntas escritas para o catálogo conhecido**, com casos de abstenção, injeção de prompt e bloqueio de operações. Não é um benchmark de perguntas novas ou avaliação de um LLM real. Veja os resultados gerados em `server/eval/latest-results.json`.
 
 O mecanismo de recuperação de lore é uma busca **lexical sobre fontes curadas**, não embeddings, vector store nem RAG semântico. A etapa de IA habilitada por modelo depende de um servidor local OpenAI-compatible, mas a execução com modelo real ainda precisa de medição própria de latência e qualidade.
@@ -114,4 +118,6 @@ Em vez de comentários didáticos espalhados pela implementação, há duas tare
 1. [FLEET_OPERATIONS.md](docs/FLEET_OPERATIONS.md): ler o domínio, criar uma transferência de teste, avaliar papéis e justificar a transação SQL.
 2. [AI_QUERY_EVALUATION.md](docs/AI_QUERY_EVALUATION.md): acompanhar uma pergunta natural até a ferramenta e a fonte, executar a avaliação, identificar limites e ativar um LLM local somente quando disponível.
 
-O projeto é **standalone**, não integrado à KORA. A arquitetura de autorização, avaliação e consultas é reutilizável em sistemas reais de estoque de componentes, bancadas e manutenção, sem transformar os dados de Star Wars em dados operacionais reais.
+O projeto é **standalone**, não integrado à KORA. O roteiro de prática com pausas e critérios de parada está em [GENAI_ENGINEERING_SPRINT.md](docs/GENAI_ENGINEERING_SPRINT.md). O **Google AI Studio não foi acionado automaticamente**; seu prompt de handoff está em [GOOGLE_AI_STUDIO_HANDOFF.md](docs/GOOGLE_AI_STUDIO_HANDOFF.md).
+
+A arquitetura de autorização, avaliação e consultas é reutilizável em sistemas reais de estoque de componentes, bancadas e manutenção, sem transformar os dados de Star Wars em dados operacionais reais.

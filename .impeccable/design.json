@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T16:00:00Z",
+  "title": "Design System: HOLO-NET Fleet Registry",
+  "extensions": {
+    "colorMeta": {
+      "deep-void": {
+        "role": "neutral",
+        "displayName": "Deep Void",
+        "canonical": "#070c13",
+        "tonalRamp": [
+          "#010203",
+          "#040507",
+          "#0a0c0f",
+          "#14161a",
+          "#212429",
+          "#33363b",
+          "#474c52",
+          "#60656b"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Command Surface",
+        "canonical": "#121c29",
+        "tonalRamp": [
+          "#030406",
+          "#07090d",
+          "#0e1217",
+          "#191e25",
+          "#282e36",
+          "#3b424b",
+          "#515964",
+          "#6a7480"
+        ]
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Raised Instrument",
+        "canonical": "#172433",
+        "tonalRamp": [
+          "#030508",
+          "#080b0f",
+          "#10151b",
+          "#1c222a",
+          "#2b333c",
+          "#3e4853",
+          "#55606c",
+          "#6f7c8a"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Panel Rule",
+        "canonical": "#496075",
+        "tonalRamp": [
+          "#0b0e12",
+          "#151b21",
+          "#232c34",
+          "#35404a",
+          "#4a5865",
+          "#627382",
+          "#7f92a4",
+          "#9fb5c9"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Primary Ink",
+        "canonical": "#ecf3f7",
+        "tonalRamp": [
+          "#232425",
+          "#404243",
+          "#616465",
+          "#85898b",
+          "#adb1b4",
+          "#d9dee1",
+          "#10810e111",
+          "#13b141145"
+        ]
+      },
+      "secondary-ink": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#bfcedb",
+        "tonalRamp": [
+          "#1d1f21",
+          "#34383c",
+          "#50565b",
+          "#6f767d",
+          "#929ba3",
+          "#b8c3cc",
+          "#e2effa",
+          "#11011e12a"
+        ]
+      },
+      "telemetry-muted": {
+        "role": "neutral",
+        "displayName": "Telemetry Label",
+        "canonical": "#91b5ca",
+        "tonalRamp": [
+          "#161b1e",
+          "#283237",
+          "#3e4c54",
+          "#586a74",
+          "#768c98",
+          "#97b1c0",
+          "#bbdaeb",
+          "#e410611a"
+        ]
+      },
+      "action-yellow": {
+        "role": "primary",
+        "displayName": "Action Yellow",
+        "canonical": "#f3e600",
+        "tonalRamp": [
+          "#242200",
+          "#423f02",
+          "#645f07",
+          "#898210",
+          "#b1a91d",
+          "#ded42e",
+          "#10e10342",
+          "#14113559"
+        ]
+      },
+      "signal-cyan": {
+        "role": "secondary",
+        "displayName": "Evidence Cyan",
+        "canonical": "#58e0e9",
+        "tonalRamp": [
+          "#0d2223",
+          "#193d40",
+          "#295c60",
+          "#3c7f84",
+          "#53a6ab",
+          "#6dd0d6",
+          "#8bfe105",
+          "#ad12f138"
+        ]
+      },
+      "alert-red": {
+        "role": "tertiary",
+        "displayName": "Alert Red",
+        "canonical": "#f47b84",
+        "tonalRamp": [
+          "#251214",
+          "#422225",
+          "#643639",
+          "#894d52",
+          "#b2686e",
+          "#de878d",
+          "#10fa9b0",
+          "#142cfd7"
+        ]
+      },
+      "press": {
+        "role": "neutral",
+        "displayName": "Selected State",
+        "canonical": "#203449",
+        "tonalRamp": [
+          "#05080b",
+          "#0a1015",
+          "#131b23",
+          "#202a35",
+          "#313d4a",
+          "#455362",
+          "#5c6d7f",
+          "#788b9f"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Command Title",
+        "purpose": "Single operational H1"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable instructions"
+      },
+      "label": {
+        "displayName": "Telemetry",
+        "purpose": "Measurements and metadata"
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "state-transition",
+        "value": "160ms ease-out",
+        "purpose": "Interactive hover and focus only; reduced motion removes transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "command-stack",
+        "value": "1100px"
+      },
+      {
+        "name": "horizontal-navigation",
+        "value": "900px"
+      },
+      {
+        "name": "compact",
+        "value": "640px"
+      },
+      {
+        "name": "narrow",
+        "value": "390px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Run a read-only query.",
+      "html": "<button class=\"ds-primary\">EXECUTAR CONSULTA</button>",
+      "css": ".ds-primary{font:700 11px IBM Plex Mono,monospace;padding:13px 15px;background:#f3e600;color:#070c13;border:0;border-radius:2px}.ds-primary:hover{background:#fff07c}.ds-primary:focus-visible{outline:2px solid #58e0e9;outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Action",
+      "kind": "button",
+      "refersTo": "button-primary-hover",
+      "description": "Subordinate command link.",
+      "html": "<button class=\"ds-secondary\">VER INVENTÁRIO</button>",
+      "css": ".ds-secondary{font:700 11px IBM Plex Mono,monospace;padding:12px 15px;background:#203449;color:#ecf3f7;border:1px solid #496075;border-radius:2px}.ds-secondary:hover{border-color:#58e0e9}.ds-secondary:focus-visible{outline:2px solid #58e0e9;outline-offset:3px}"
+    },
+    {
+      "name": "Query Input",
+      "kind": "input",
+      "refersTo": "input-query",
+      "description": "Free-form Portuguese read-only query.",
+      "html": "<textarea class=\"ds-query\" rows=\"3\" placeholder=\"Quantos X-wings há em Yavin 4?\"></textarea>",
+      "css": ".ds-query{background:#081522;color:#ecf3f7;border:1px solid #496075;padding:12px 13px;width:100%;font:400 14px/1.6 IBM Plex Sans,sans-serif;border-radius:2px}.ds-query:focus-visible{outline:2px solid #58e0e9;outline-offset:2px}"
+    },
+    {
+      "name": "Telemetry Chip",
+      "kind": "chip",
+      "refersTo": "nav-active",
+      "description": "Metadata state marker.",
+      "html": "<span class=\"ds-chip\">SOMENTE LEITURA</span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;font:600 10px IBM Plex Mono,monospace;padding:6px 9px;background:#203449;border:1px solid #496075;color:#ecf3f7}"
+    },
+    {
+      "name": "Command Panel",
+      "kind": "card",
+      "refersTo": "card-command",
+      "description": "Surface for map, query or ledger.",
+      "html": "<section class=\"ds-panel\"><small>LOGISTICS / SELECTED ERA</small><h3>Manifesto de frota</h3><p>Unidades de simulação identificadas.</p></section>",
+      "css": ".ds-panel{padding:19px 22px;border:1px solid #496075;border-radius:2px;background:#121c29;color:#ecf3f7;font:400 14px IBM Plex Sans,sans-serif}.ds-panel small{color:#58e0e9;font:600 10px IBM Plex Mono,monospace}.ds-panel h3{font:700 22px Oxanium,Arial,sans-serif;margin:8px 0}.ds-panel p{color:#bfcedb;margin:0}"
+    },
+    {
+      "name": "Selected Nav",
+      "kind": "nav",
+      "refersTo": "nav-active",
+      "description": "Current navigation state.",
+      "html": "<nav><button class=\"ds-nav-selected\" aria-current=\"page\">VISÃO GERAL</button></nav>",
+      "css": ".ds-nav-selected{background:#203449;border:0;border-left:2px solid #f3e600;color:#ecf3f7;padding:10px 14px;font:600 11px IBM Plex Sans,sans-serif}.ds-nav-selected:focus-visible{outline:2px solid #58e0e9;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Holotable de Comando",
+    "overview": "A working decision console: task-first hierarchy, authored schematic map and accountable natural-language answers; not a promotional cyberpunk template.",
+    "keyCharacteristics": [
+      "Low-glare workstation palette",
+      "Evidence-first query",
+      "Schematic star chart with accessible map pins",
+      "Synthetic quantities identified in every view",
+      "Compact operation-focused navigation"
+    ],
+    "rules": [
+      {
+        "name": "Provenance Rule",
+        "body": "Color never makes fictional quantities look like historical sources.",
+        "section": "colors"
+      },
+      {
+        "name": "Instruments Before Decoration",
+        "body": "Visuals must explain decisions or state.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Preserve fast query and fleet status",
+      "Show Canon, simulation and unknown distinctly",
+      "Ship accessible controls"
+    ],
+    "donts": [
+      "Invent stock or cite lore without sources",
+      "Expose unauthenticated admin writes",
+      "Use generic four-card hero"
+    ]
+  }
+}
